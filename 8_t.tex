@@ -1,0 +1,81 @@
+\documentclass[11pt,a4paper, fqlen]{article}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[russian]{babel}
+\usepackage{ucs}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{fullpage}
+
+
+\title{Билет 8. Математическая постановка задач для уравнения теплопроводности.}
+\date{}
+
+\begin{document}
+	\maketitle
+	
+	\section{Задача в общем виде}
+	Решаем задачу на стержне, для начала конечном. (На отрезке [0,l]) \\
+	
+	Какие физические законы знаем?
+	
+	 \textbf {Закон Фурье} \\
+	 
+	 
+		Если распределение температоры неравномерно, то возникают потоки тепла из мест высокой в места низкой температуры.
+		\begin{flalign}
+		 Q = -k * \frac{u_2 - u_1}{l_2 - l_1} * S = -k * \frac{\partial u}{\partial x} S \\
+		dQ = -k * \frac{\partial u}{\partial x} S dt \\
+		Q = -S \int_{t1}^{t2} k \frac{\partial u}{\partial x} dt 
+		\end{flalign}
+		
+		
+
+	
+	
+	Итак, уравнение теплопроводности: \\
+	Начальные условия: $u(x,0) = \varphi(x)$ \\
+	Граничные условия: \\
+	1. Условия 1 рода 
+	
+	 $\quad u(0,t) = \mu_1(t)$ 
+	 
+	 $\quad u(l,t) = \mu_2(t)$  \\ 
+	2. Условие 2 рода (теплообмен)
+	
+	$\quad u_x(0,t) = \nu_1(t)$ 
+	
+	$\quad u_x(l,t) = \nu_2(t)$
+	
+	Если $u_x(0,t) = 0$, то конец теплоизолирован \\
+	Почему? По закону Фурье: $\frac{du}{dx} = 0 => Q(x=0) = 0 $
+	=> тепло не уходит и не приходит в этой точке.
+	
+	\section{Постановка конкретных задач}
+	\begin{enumerate}
+		\item Задача с неоднородным условием
+		\noindent
+		\begin{flalign*}
+		&u_t = a^2u_{xx} + f& \\
+		&u(0,t) = \mu_1(t)& \\
+		&u(l,t) = \mu_2(t)& \\
+		&u(x,0) = \varphi(x)&
+		\end{flalign*}
+		
+		\item Задача на бесконечной прямой ($-\infty < x < \infty$)
+		\begin{flalign*}
+		&u_t = a^2u_{xx} & \\
+		&u(x,0) = \varphi(x)& \\
+		&|u(x,t)| ограничен&
+		\end{flalign*}
+		
+		\item Задача на полубесконечной прямой ($0 < x < \infty$)
+		\begin{flalign*}
+		&u_t = a^2u_{xx} & \\
+		&u(x,0) = \varphi(x)& \\
+		&|u(x,t)| ограничен&
+		\end{flalign*}
+	\end{enumerate}
+\end{document}
