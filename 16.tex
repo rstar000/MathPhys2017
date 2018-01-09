@@ -16,8 +16,8 @@
 \date{}
 
 \begin{document}
-\section*{Билет 16.\\ Первая и вторая формулы Грина}
-\section{Формула Остроградского}
+\section{Билет 16.\\ Первая и вторая формулы Грина}
+\subsection{Формула Остроградского}
 	
 Пусть поверхность $\varSigma$ состоит из конечного числа замкнутых кусков, имеющих в каждой точке касательную, причем любые прямые, параллельные прямые, параллельные осям координат, пересекают поверхность либо в конечном числе точек, либо по конечному числу отрезков.
 
@@ -31,7 +31,7 @@ $$
 div \vec{A} = \frac{\partial P}{\partial x} + \frac{\partial Q}{\partial y} + \frac{\partial R}{\partial z}
 $$
 
-\section{Первая формула Грина}
+\subsection{Первая формула Грина}
 Пусть u,v - скалярные функции, $u,v \in C^2(\varOmega) \cap C^1{\bar{\varOmega}} $\\
 $A = u * grad (v)$. Применим формулу Остроградского:
 $$
@@ -73,7 +73,7 @@ $$
 \iiint \limits_{\varOmega} ((grad(u), grad(v)) + u\Delta v)dr = \iint \limits_{\Sigma} u  \frac{\partial v}{\partial n} d\sigma
 $$
 
-\section{Вторая формула Грина}
+\subsection{Вторая формула Грина}
 Поменяем местами u и v и вычтем из исходной формулы Грина. Получим:
 $$
 \iiint \limits_{\varOmega} ((grad(u), grad(v)) - (grad(u), grad(v)) + u\Delta v -  v\Delta u)dr = \iint \limits_{\Sigma} u  (\frac{\partial v}{\partial n} -  v  \frac{\partial u}{\partial n}) d\sigma
