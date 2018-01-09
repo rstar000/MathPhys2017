@@ -1,0 +1,98 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[russian]{babel}
+\usepackage{ucs}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage[margin=1mm]{geometry}
+
+
+\usepackage{amsthm}
+
+\title{Билет 16. Первая и вторая формулы Грина}
+\date{}
+
+\begin{document}
+\maketitle
+\section{Формула Остроградского}
+	
+Пусть поверхность $\varSigma$ состоит из конечного числа замкнутых кусков, имеющих в каждой точке касательную, причем любые прямые, параллельные прямые, параллельные осям координат, пересекают поверхность либо в конечном числе точек, либо по конечному числу отрезков.
+
+Тогда в области $\varOmega$ для функции $\vec{A}(x,y,z) = \{P(x,y,z), Q(x,y,z), R(x,y,z)\}$, где P,Q,R - непрерывно дифференцируемые в $\bar{\varOmega}$, верна формула Остроградского-Гаусса:
+
+$$
+\iint \limits_{\varSigma} (\vec{A}, \vec{n})d\sigma = \iiint \limits_{\varOmega} div \vec{A} d\tau
+$$
+
+$$
+div \vec{A} = \frac{\partial P}{\partial x} + \frac{\partial Q}{\partial y} + \frac{\partial R}{\partial z}
+$$
+
+\section{Первая формула Грина}
+Пусть u,v - скалярные функции, $u,v \in C^2(\varOmega) \cap C^1{\bar{\varOmega}} $\\
+$A = u * grad (v)$. Применим формулу Остроградского:
+$$
+\iint \limits_{\varSigma} (u * grad(v), \vec{n})d\sigma = \iiint \limits_{\varOmega} div \vec{u * grad(v)} d\tau
+$$
+Распишем левую и правую части
+\textbf{1. Правая часть} \\
+\begin{equation}
+\begin{split}
+div(u\ grad(v)) = div(u\frac{\partial v}{\partial x}, u\frac{\partial v}{\partial y}, u\frac{\partial v}{\partial z}) = \\
+\frac{\partial(u\frac{\partial v}{\partial x})}{\partial x} + 
+\frac{\partial(u\frac{\partial v}{\partial y})}{\partial y} +
+\frac{\partial(u\frac{\partial v}{\partial z})}{\partial z} = \\
+\frac{\partial u}{\partial x} \frac{\partial v}{\partial x} + 
+u \frac{\partial^2 v}{\partial x^2} + 
+\frac{\partial u}{\partial y} \frac{\partial v}{\partial y} + 
+u \frac{\partial^2 v}{\partial y^2} + 
+\frac{\partial u}{\partial z} \frac{\partial v}{\partial z} + 
+u \frac{\partial^2 v}{\partial z^2} = \\
+(grad(u), grad(v)) + u \cdot (
+\frac{\partial^2 v}{\partial x^2} +
+\frac{\partial^2 v}{\partial y^2} +
+\frac{\partial^2 v}{\partial z^2}
+) = \\
+(grad(u), grad(v)) + u \Delta v
+\end{split}
+\end{equation}
+
+\textbf{2. Левая часть} \\
+\begin{equation}
+\begin{split}
+(grad(v), \vec{n}) = \frac{\partial v}{\partial x} \cdot n1 + \frac{\partial v}{\partial y} \cdot n2 + \frac{\partial v}{\partial z} \cdot n3 = \frac{\partial v}{\partial n}
+\end{split}
+\end{equation}
+
+Итак, первая формула Грина:
+$$
+\iiint \limits_{\varOmega} ((grad(u), grad(v)) + u\Delta v)dr = \iint \limits_{\Sigma} u  \frac{\partial v}{\partial n} d\sigma
+$$
+
+\section{Вторая формула Грина}
+Поменяем местами u и v и вычтем из исходной формулы Грина. Получим:
+$$
+\iiint \limits_{\varOmega} ((grad(u), grad(v)) - (grad(u), grad(v)) + u\Delta v -  v\Delta u)dr = \iint \limits_{\Sigma} u  (\frac{\partial v}{\partial n} -  v  \frac{\partial u}{\partial n}) d\sigma
+$$
+
+$$
+\iiint \limits_{\varOmega} (u\Delta v -  v\Delta u)dr = \iint \limits_{\Sigma} u  (\frac{\partial v}{\partial n} -  v  \frac{\partial u}{\partial n}) d\sigma
+$$
+
+\section{Формула Д'аламбера}
+Задача Коши для уравнения колебаний на прямой:
+$$
+\begin{cases}
+	u_tt = a^2t_xx, \quad x \in \Re, t > 0\\
+	u(x,0) = \varphi(x) \\
+	u_t(x,0) = \psi(x)
+\end{cases}
+$$
+Формула Даламбера
+$$
+u(x,t) = \frac{1}{2}(\varphi(x-at) + \varphi(x+at)) + \frac{1}{2a} \int\limits_{x-at}^{x+at} \psi(s)ds
+$$
+\end{document}
