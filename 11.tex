@@ -17,26 +17,25 @@
 
 \newtheorem*{thdef}{Теорема}
 \begin{document}
-	\maketitle
-	
+	\section*{Билет 11. \\Существование  решения задачи Коши для уравнения теплопроводности}
 	\section{Постановка задачи}
 	\begin{gather}
 	\begin{cases}
-		u_t = a^2 u_{xx}, \quad -\infty < x < \infty\\
-		u(x,0) = \varphi(x)
+	u_t = a^2 u_{xx}, \quad -\infty < x < \infty\\
+	u(x,0) = \varphi(x)
 	\end{cases}
 	\end{gather}
-
-Хотим доказать, что решение $u(x,t)$ существует и единственно.
-
-\section{Подготовка}
-
+	
+	Хотим доказать, что решение $u(x,t)$ существует и единственно.
+	
+	\section{Подготовка}
+	
 	Используем метод разделения переменных. $u(x,t) = X(x)T(t)$
 	
 	Подставим это в задачу. Получим $T'X = a^2X''T$. \\
 	Домножим всё на $\frac{1}{a^2XT}$.
-	 $$\frac{X''}{X} = \frac{T'}{a^2 T} = -\lambda^2, \quad \lambda = const > 0$$
-	 
+	$$\frac{X''}{X} = \frac{T'}{a^2 T} = -\lambda^2, \quad \lambda = const > 0$$
+	
 	В итоге получили такую систему:
 	$$
 	\begin{cases}
@@ -44,7 +43,7 @@
 	T' + a^2\lambda^2T = 0
 	\end{cases}
 	$$
-
+	
 	Решения системы: 
 	\[
 	\begin{cases}
@@ -52,10 +51,10 @@
 	T(t) = exp(-a^2 \lambda^2 t)
 	\end{cases}
 	\]
-
+	
 	Итак, решение исходной системы: $u(x,t) = exp(i \lambda x - a^2 \lambda^2 t)$
 	Пусть $A(\lambda)$ - некоторая функция. Тогда $u_\lambda = A(\lambda)  u(x,t)$ - тоже решение системы(функция по сути константа).
-		
+	
 	Определим решение таким образом:
 	\[
 	u(x,t) = \int \limits_{-\infty}^{\infty} A(\lambda) exp(i \lambda x - a^2 \lambda^2 t) d\lambda
@@ -69,8 +68,8 @@
 	
 	Подставим найденные коэффициенты A в решение:
 	$$
-		u(x,t) = \int \limits_{-\infty}^{\infty} \frac{1}{2\pi} \left[\int \limits_{-\infty}^{\infty} e^{-i \lambda s} \varphi(s) ds \right] exp(i \lambda x - a^2 \lambda^2 t) d\lambda = 
-		\int \limits_{-\infty}^{\infty} \varphi(s) \left[\int \limits_{-\infty}^{\infty} \frac{1}{2\pi} exp(i \lambda (x-s) - a^2 \lambda^2 t) d\lambda \right] ds
+	u(x,t) = \int \limits_{-\infty}^{\infty} \frac{1}{2\pi} \left[\int \limits_{-\infty}^{\infty} e^{-i \lambda s} \varphi(s) ds \right] exp(i \lambda x - a^2 \lambda^2 t) d\lambda = 
+	\int \limits_{-\infty}^{\infty} \varphi(s) \left[\int \limits_{-\infty}^{\infty} \frac{1}{2\pi} exp(i \lambda (x-s) - a^2 \lambda^2 t) d\lambda \right] ds
 	$$
 	Внутренний интеграл вполне можно посчитать. В результате получится:
 	$$
@@ -78,44 +77,44 @@
 	$$
 	Более короткая запись:
 	\begin{gather}
-		G(x,s,t) = \frac{1}{\sqrt{4\pi a^2 t}} exp(-\frac{(x-s)^2}{4a^2t}) \\	
-		u(x,t) = \int \limits_{-\infty}^{\infty} G(x,s,t) \varphi(s) ds
+	G(x,s,t) = \frac{1}{\sqrt{4\pi a^2 t}} exp(-\frac{(x-s)^2}{4a^2t}) \\	
+	u(x,t) = \int \limits_{-\infty}^{\infty} G(x,s,t) \varphi(s) ds
 	\end{gather}
 	
-\section{Теорема}
-\begin{thdef}
-	Пусть $\varphi(x)$ - начальное условие, такое что оно непрерывно по x и ограничено. Тогда (5) непрерывно по x,t и удовлетворяет уравнению теплопроводности при $x \in \Re, t>0$. К тому же, $\lim\limits_{t->0+} u(x,t) = \varphi(x)$
-\end{thdef}
-
-\begin{proof}
-	\textbf{1.} Для начала докажем, что u(x,t) непрерывна. Для этого достаточно доказать, что u(x,t) непрерывна в прямоугольнике $П = \{(x,t): -L < x < L, t_0 < t < t\}$ где все эти пределы - const > 0. \\
-	Все функции в интеграле из u (а это G и $\varphi$) непрерывны в П. Тогда если интеграл сходится равномерно, то и u тоже.
+	\section{Теорема}
+	\begin{thdef}
+		Пусть $\varphi(x)$ - начальное условие, такое что оно непрерывно по x и ограничено. Тогда (5) непрерывно по x,t и удовлетворяет уравнению теплопроводности при $x \in \Re, t>0$. К тому же, $\lim\limits_{t->0+} u(x,t) = \varphi(x)$
+	\end{thdef}
 	
-	\textbf{2.} Сделаем такую замену: $\frac{x-s}{2a\sqrt{t}} = \psi$. Тогда $s = x + \psi 2 a \sqrt{t}$, $ds = 2a\sqrt{t}d\psi$. Интеграл перепишем таким образом:
+	\begin{proof}
+		\textbf{1.} Для начала докажем, что u(x,t) непрерывна. Для этого достаточно доказать, что u(x,t) непрерывна в прямоугольнике $П = \{(x,t): -L < x < L, t_0 < t < t\}$ где все эти пределы - const > 0. \\
+		Все функции в интеграле из u (а это G и $\varphi$) непрерывны в П. Тогда если интеграл сходится равномерно, то и u тоже.
+		
+		\textbf{2.} Сделаем такую замену: $\frac{x-s}{2a\sqrt{t}} = \psi$. Тогда $s = x + \psi 2 a \sqrt{t}$, $ds = 2a\sqrt{t}d\psi$. Интеграл перепишем таким образом:
+		
+		$$
+		u(x,t) = \frac{1}{\sqrt{\pi}} \int \limits_{-\infty}^{\infty} e^{-\psi^2} \phi(x+2a\psi \sqrt{t}) d\psi
+		$$
+		
+		Если в этой формуле положить $t = 0$, то получится начальное условие (тут интеграл Пуассона). $\phi$ ограничена, => интеграл сходится равномерно. Доказан пункт про начальные условия.
+		
+		\textbf{3.} Теперь докажем возможнотсь дифференцирования под знаком интеграла.
+		
+		$$
+		\frac{du}{dt} (x,t) = \int \limits_{-\infty}^{\infty} \frac{\partial G}{\partial t}(x,s,t) \phi(s) ds = [\text{делаем тут замену} \psi] = \frac{1}{\sqrt{\pi}} \int \limits_{-\infty}^{\infty} (-\frac{1}{2t} + \frac{\psi^2}{t})e^{-\psi^2} \phi(x+2a\psi \sqrt{t}) d\psi
+		$$
+		
+		Подынтегральная функция ограничена => интеграл сходится равномерно => работает дифференцируемость по t. Точно также можно проверить и для x.
+	\end{proof}
 	
-	$$
-	u(x,t) = \frac{1}{\sqrt{\pi}} \int \limits_{-\infty}^{\infty} e^{-\psi^2} \phi(x+2a\psi \sqrt{t}) d\psi
-	$$
 	
-	Если в этой формуле положить $t = 0$, то получится начальное условие (тут интеграл Пуассона). $\phi$ ограничена, => интеграл сходится равномерно. Доказан пункт про начальные условия.
-	
-	\textbf{3.} Теперь докажем возможнотсь дифференцирования под знаком интеграла.
-	
-	$$
-	\frac{du}{dt} (x,t) = \int \limits_{-\infty}^{\infty} \frac{\partial G}{\partial t}(x,s,t) \phi(s) ds = [\text{делаем тут замену} \psi] = \frac{1}{\sqrt{\pi}} \int \limits_{-\infty}^{\infty} (-\frac{1}{2t} + \frac{\psi^2}{t})e^{-\psi^2} \phi(x+2a\psi \sqrt{t}) d\psi
-	$$
-	
-	Подынтегральная функция ограничена => интеграл сходится равномерно => работает дифференцируемость по t. Точно также можно проверить и для x.
-\end{proof}
-
-
-\section{Теормин}
-\textbf{Постановка внешней задачи Дирихле для уравнения Лапласа в пространстве}
-Пусть $\varOmega$ - некоторая открытая область в $E^3$, огранченная поверхностью $\varSigma$. 
-Задача:
-\begin{gather*}
-\Delta u = 0 \quad \text{и u непрерывна вне области} \\
-u(M) = \mu(M), \quad \mu \in \varSigma \\
-u(M) \rightrightarrows 0 \ M \rightarrow \infty 
-\end{gather*} 
+	\section{Второй вопрос}
+	\textbf{Постановка внешней задачи Дирихле для уравнения Лапласа в пространстве}\\
+	Пусть $\varOmega$ - некоторая открытая область в $E^3$, огранченная поверхностью $\varSigma$. 
+	Задача:
+	\begin{gather*}
+	\Delta u = 0 \quad \text{и u непрерывна вне области} \\
+	u(M) = \mu(M), \quad \mu \in \varSigma \\
+	u(M) \rightrightarrows 0 \ M \rightarrow \infty 
+	\end{gather*} 
 \end{document}
