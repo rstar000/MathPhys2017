@@ -76,18 +76,18 @@ $$
 \subsection{Вторая формула Грина}
 Поменяем местами u и v и вычтем из исходной формулы Грина. Получим:
 $$
-\iiint \limits_{\varOmega} ((grad(u), grad(v)) - (grad(u), grad(v)) + u\Delta v -  v\Delta u)dr = \iint \limits_{\Sigma} u  (\frac{\partial v}{\partial n} -  v  \frac{\partial u}{\partial n}) d\sigma
+\iiint \limits_{\varOmega} ((grad(u), grad(v)) - (grad(u), grad(v)) + u\Delta v -  v\Delta u)dr = \iint \limits_{\Sigma} (u  \frac{\partial v}{\partial n} -  v  \frac{\partial u}{\partial n}) d\sigma
 $$
 
 $$
-\iiint \limits_{\varOmega} (u\Delta v -  v\Delta u)dr = \iint \limits_{\Sigma} u  (\frac{\partial v}{\partial n} -  v  \frac{\partial u}{\partial n}) d\sigma
+\iiint \limits_{\varOmega} (u\Delta v -  v\Delta u)dr = \iint \limits_{\Sigma} (u\frac{\partial v}{\partial n} -  v  \frac{\partial u}{\partial n}) d\sigma
 $$
 
 \section{Формула Д'аламбера}
 Задача Коши для уравнения колебаний на прямой:
 $$
 \begin{cases}
-	u_tt = a^2t_xx, \quad x \in \Re, t > 0\\
+	u_{tt} = a^2t_{xx}, \quad x \in \Re, t > 0\\
 	u(x,0) = \varphi(x) \\
 	u_t(x,0) = \psi(x)
 \end{cases}
